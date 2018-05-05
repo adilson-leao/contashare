@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+      <link href="css/icon.css" rel="stylesheet">
+			<link rel="stylesheet" href="css/w3.css">
+			<link rel="stylesheet" href="css/my.css">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body ng-app="appRachaConta" ng-controller="ctrlConta">
+
+		<!--<div class="cor-prim w3-center w3-bar">
+    	<div class="roboto-prim font24">ContaShare</div>
+  	</div>-->
+
+		<div ng-show="exibirTelaInicial">
+
+			<div class="w3-container w3-center embaixo">
+				<br>
+				<br>
+				<img src="img\logo.png" alt="logo" class=" w3-center w3-margin-bottom w3-margin-top">
+				<br>
+				<button class="cor-prim w3-button w3-round" ng-click="abrirTelaEntreUser()"><div class="roboto-prim">INICIAR</div></button>
+				<button class="cor-prim w3-button w3-round" ng-click="abrirTelaHistorico()"><div class="roboto-prim">HISTÓRICO</div></button>
+			</div>
+		</div>
+
+	<div ng-show="exibirTelaEntreUser" class="roboto">
+			<div style="padding-top:35pt" class="w3-containner w3-center">
+				<h3 class="roboto-sec font24">Adicionar Usuário</h3>
+			</div>
+			<div class="w3-padding">
+			<form class="w3-container">
+					<input class="w3-input" placeholder="Nome" type="text" ng-model="nomeUser"></input>
+					<br>
+					<div class="w3-center w3-container">
+						<div  class="cor-prim w3-left w3-button w3-round"  ng-click="addUser();nomeUser=''">Adicionar</div>
+						<div  class="cor-prim w3-right w3-button w3-round"  ng-hide="listaUsers.length==0" ng-click="abrirTelaItem()">Avançar</div>
+					</div>
+			</form>
+			<br>
+			<table class="w3-table w3-border w3-striped">
+				<tr><th>Nome</th><th class="w3-right" style="padding-right: 20pt;">Ação</th></tr>
+				<tr ng-repeat="item in listaUsers track by $index">
+					<td>{{item.nomeUser}}</td>
+					<td class="w3-right"><button class="w3-button cor-prim w3-small " ng-click="excluir(item.id)">Excluir</button></td>
+				</tr>
+			</table>
+		</div>
+		</div>
+	</div>
+
+	<div ng-show="exibirTelaItens" class="roboto">
+
+		<div class="w3-containner w3-center" style="padding-top:25pt">
+			<h3>Conta</h3>
+		</div>
+		<div ng-repeat="item in listaItens track by $index" class="w3-card-4 w3-center w3-padding w3-margin w3-round-large">
+			<div class="w3-left">{{item.nomeItem}}</div>
+			<div class="w3-right">{{item.qtdItem}}x R$ {{item.valorItem| number:2}}</div><br>
+		</div>
+
+
+
+
+		<div class="w3-container w3-bottom">
+			<div class="cor-prim w3-button w3-round-large btn-baixo w3w3-left" onclick="document.getElementById('add').style.display='block'" >Adicionar</div>
+			<div ng-hide="listaItens.length==0" class="cor-prim w3-button w3-round-large btn-baixo w3-right" ng-click="abrirTelaResultado()">Avançar</div>
+		</div>
+
+
+		<div id="add" class="w3-modal" style="padding-top:55pt" >
+			<div class="w3-modal-content w3-center" >
+				<div class="w3-card w3-container" >
+					<h3 class="roboto-sec font24" style="color: #26418f;">Adicionar Item</h3>
+					<div class="">
+						<table class="w3-table w3-border-0">
+							<tr>
+								<td><p class="">Nome do item</p></td>
+								<td><input class="w3-input" type="text" style="width:150px" ng-model="nomeItem"></td>
+							</tr>
+							<tr>
+								<td><p class="">Valor do item</p></td>
+								<td><input class="w3-input" type="number" placeholder="R$" style="width:150px" ng-model="valorItem"></td>
+							</tr>
+							<tr>
+								<td><p class="">Quantidade</p></td>
+								<td><input class="w3-input" type="number" default="1" style="width:150px" ng-model="qtdItem"></td>
+							</tr>
+						</table>
+					</div>
+
+					<br>
+					<div>Selecione o Perfil</div>
+					<div class="w3-center">
+						<select ng-model="userItem" class="w3-select">
+							<option ng-repeat="item in listaUsers track by $index" value="{{item.id}}">{{item.nomeUser}}</option>
+						</select>
+					</div>
+
+					<div>
+						<button style="color: #26418f;" class="w3-button w3-right" ng-click="addItem(item); nomeItem = null; valorItem = null; qtdItem = 1" onclick="document.getElementById('add').style.display='none'">Adicionar</button>
+						<button style="color: #26418f;" ng-click="nomeItem = null; valorItem = null; qtdItem = null" onclick="document.getElementById('add').style.display='none'" class="w3-button w3-right">Cancelar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div ng-show="exibirTelaResultado" class="roboto">
+			<div ng-repeat="user in listaUsers track by $index" class="w3-container w3-card-4 w3-padding w3-margin w3-round-large">
+				<div class="w3-container">
+					<h4>{{user.nomeUser}}</h4>
+				</div>
+				<div ng-repeat="item in listaItens | filter:{userItem:user.id}:true track by $index">
+						<div style="padding-left:20pt" class="w3-left">{{item.qtdItem}} x {{item.nomeItem}}</div>
+						<div ng-init="user.total = user.total + (item.valorItem*item.qtdItem); valorConta = valorConta + user.total" class="w3-right">R$ {{item.qtdItem*item.valorItem | number:2}}</div>
+						<br>
+				</div>
+					<b class="w3-right">Total: R$ {{user.total|number:2}}</b>
+				</div>
+				<br>
+				<div class="w3-center w3-container">
+					<div  class="cor-prim w3-left w3-button w3-round"  ng-click="salvarConta()">Salvar Conta</div>
+					<div  class="cor-prim w3-right w3-button w3-round" ng-click="abrirTelaEntreUser();listaUsers=[];listaItens=[]">Nova Conta</div>
+				</div>
+			<div class="w3-container w3-center w3-padding w3-bottom font24">
+				<b>Total: R$ {{getTotal()|number:2}}</b>
+				<br>
+				<div class="w3-left">R$ {{getTotal()/listaUsers.length|number:2}}/cada</div>
+				<div class="w3-right">10%: R$ {{getTotal()*10/100|number:2}}</div>
+			</div>
+
+
+
+	</div>
+
+		<script type="text/javascript" src="extensions/angular-1.5.8/angular.min.js"></script>
+		<script type="text/javascript" src="js/appRachaConta.js"></script>
+		<script type="text/javascript" src="js/ctrlConta.js"></script>
+
+	</body>
+</html>
