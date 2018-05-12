@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+      <link href="css/icon.css" rel="stylesheet">
+			<link rel="stylesheet" href="css/w3.css">
+			<link rel="stylesheet" href="css/my.css">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body ng-app="appRachaConta" ng-controller="ctrlHistorico"  class="roboto">
+
+		<div ng-show="exibirTelaHistorico">
+
+			<div class="w3-containner w3-center" style="padding-top:25pt">
+				<h3>Histórico</h3>
+			</div>
+			<br>
+			<div class="w3-margin">
+				<table class="w3-table w3-border w3-striped">
+				<tr><th>Usuário</th><th>Valor da Conta</th></tr>
+				<tr>
+					<td ><div ng-repeat="cel in nomeUsers track by $index">{{cel.nomeUser}}</div></td>
+					<td>{{getTotal()}}</td>
+				</tr>
+			</table>
+		</div>
+
+
+
+		<script type="text/javascript" src="extensions/angular-1.5.8/angular.min.js"></script>
+		<script type="text/javascript" src="js/appRachaConta.js"></script>
+		<script type="text/javascript" src="js/ctrlHistorico.js"></script>
+
+	</body>
+</html>

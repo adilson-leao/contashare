@@ -1,0 +1,53 @@
+<html>
+		<link rel="stylesheet" href="css\w3.css">
+		<link rel="stylesheet" href="css\my.css">
+		<link rel="stylesheet" href="css\font-awesome.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+
+	<div class="w3-container font-big w3-center">
+	  <h1>Conta</h1>
+	</div>
+
+	<div class=" w3-container w3-bottom" onclick="document.getElementById('add').style.display='block'" >
+		<div class="w3-circle w3-button prop-prim-light w3-container w3-card w3-margin-right w3-margin-bottom w3-center btn-bot w3-right">
+			<div class="font-big w3-margin">+</div>
+		</div>
+	</div>
+
+
+<div id="add" class="w3-modal">
+	<div class="w3-modal-content">
+		<div class="w3-card w3-container">
+			<div class="prop-prim top-bar w3-padding">Adicionar Item</div>
+				<div class="w3-margin">
+					<p class="w3-medium roboto font18">Insira o item<input class="w3-input w3-animate-input" type="text" style="width:135px"><br>
+					<p class="w3-medium roboto font18">Insira valor do item<input class="w3-input  w3-animate-input" type="number" placeholder="R$" style="width:135px"><br>
+				  <p class="w3-medium roboto font18">Quantidade<input class="w3-input w3-animate-input" type="number" default="1" style="width:135px">
+						<br><br>
+						<select name="users" id="" class="w3-select roboto font18">
+							<option value="" disabled selected>Selecione o Usuário</option>
+							<option value="user1">Alessandra</option>
+							<option value="user2">Roberto</option>
+						</select>
+				</div>
+				<div>
+
+				</div>
+				<div >
+					<button style="color: #26418f;" class=" w3-button w3-right w3-xlarge font-big">Adicionar</button>
+					<button style="color: #26418f;" onclick="document.getElementById('add').style.display='none'" class="w3-button w3-right w3-xlarge font-big">Cancelar</button>
+				</div>
+
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+</body>
+</html>

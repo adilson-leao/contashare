@@ -1,0 +1,71 @@
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(../font/roboto-regular-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(../font/roboto-regular-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto-Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(../font/roboto-bold-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto-Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(../font/roboto-bold-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+.prop-prim{color:#ffffff!important;background-color:#5c6bc0!important;font-family: 'Roboto', sans-serif;}
+.cor-prim{color:#ffffff!important;background-color:#5c6bc0!important};
+.prop-prim-light{color:#ffffff!important;background-color:#8e99f3!important;font-family: 'Roboto', sans-serif;}
+.prop-prim-dark{color:#ffffff!important;background-color:#26418f!important;font-family: 'Roboto', sans-serif;}
+.prop-sec{color:#000!important;background-color:#bcaaa4!important;font-family: 'Roboto', sans-serif;}
+.prop-sec-light{color:#000!important;background-color:#efdcd5!important;font-family: 'Roboto', sans-serif;}
+.prop-sec-dark{color:#000!important;background-color:#8c7b75!important;font-family: 'Roboto', sans-serif;}
+.top-bar{font-size: 35px; font-family: 'Roboto', sans-serif;}
+.btn-bot{height: 60px; width: 60px;}
+.w3-margin-top-22{margin-top:22px!important}
+.btn-start{font-size: 25px; padding: 15px ;}
+.menu-text{font-family: 'Roboto';font-size:20px}
+.btn-fechar{width: 95%}
+.roboto-prim{font-family: 'Roboto'; font-size: 16px; color:#ffffff}
+.roboto-sec{font-family: 'Roboto'; font-size: 16px; color: #000}
+.font-big{font-family:'Roboto-Bold';font-size: 26px}
+.roboto-bold{font-family:'Roboto-Bold'}
+.font18{font-size: 18px}
+.font24{font-size: 24px}
+.roboto{font-family: 'Roboto'};
+
+.theBtn{
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  padding: 15px; /* Some padding */
+}
+
+.btn-baixo{
+  bottom: 20px;
+  z-index: 99;
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  margin: 20pt; /* Some padding */
+  font-size: 20px;
+
+}
